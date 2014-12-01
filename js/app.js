@@ -12,6 +12,14 @@ var addressBook = angular.module('AddressBook', []);
 addressBook.controller('AddressController', ['$scope', function($scope){
 	$scope.employees = pawneeEmployees;
 	$scope.order = 'lastName';
-	
+	$scope.sort = function(col){
+		if (col == $scope.order){
+			$scope.reverse = !$scope.reverse;
+		} else {
+			$scope.order = col;
+			$scope.reverse = false;
+		}	
+	};
+
 
 }]);

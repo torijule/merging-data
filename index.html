@@ -24,20 +24,20 @@
                 <div class="sort-ui">
                     <span>Sort By: </span>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-default" ng-click="order = 'lastName'; reverse=!reverse" >Last Name</button>
-                        <button type="button" class="btn btn-default" ng-click="order = 'firstName;'; reverse=!reverse">First Name</button>
-                        <button type="button" class="btn btn-default" ng-click="order = 'department'; reverse=!reverse">Department</button>
+                        <button type="button" class="btn btn-default" ng-click="sort('lastName')" ng-class="{active: order == 'lastName'}">Last Name</button>
+                        <button type="button" class="btn btn-default" ng-click="sort('firstName')" "{active: order == 'firstName'}">First Name</button>
+                        <button type="button" class="btn btn-default" ng-click="sort('department')" "{active: order == 'department'}"> Department</button>
                     </div>
                 </div>
                 <!-- filter input; you will add attributes to make this filter the list based on value entered -->
                 <div class="filter-ui">
-                    <input type="text" class="form-control" placeholder="Search...">
+                    <input type="text" class="form-control" placeholder="Search..." ng-model="search">
                 </div>
             </section>
 
             <section>
                 <ul class="cards">
-                    <li class="card" ng-repeat="employee in employees | orderBy: order : reverse">
+                    <li class="card" ng-repeat="employee in filteredEmployees = (employees | filter: search | orderBy : order : reverse)">
                         <!-- this img should show the employee picture --> 
                         <img ng-src="{{employee.picUrl}}" alt="Picture of {{employee.firstName}} {{employee.lastName}}">
                         <div class="details">
