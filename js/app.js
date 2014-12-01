@@ -1,9 +1,9 @@
 /* 
-    app.js
-    Angular application for the address book challenge
+app.js
 
-    Add code here to create a new Angular application and controller.
-    The array of employee objects is already in a global variable named 'pawneeEmployees'
+By Victoria Wellington
+To be used with the merging data challenge files
+To practice and demonstrate elementary understanding of Angular
 */
 
 "use strict";
